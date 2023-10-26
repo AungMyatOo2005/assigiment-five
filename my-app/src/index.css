@@ -1,12 +1,12 @@
 body {
-  background-color: var(--secondary);
+  background:linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200));
 }
 :root {
-  --primary: #9e8fb2;
-  --secondary: #a7acd9;
-  --third: #93c6d6;
-  --fourth: #82aeb1;
-  --danger: #668586;
+  --primary: #fccde2;
+  --secondary: #c5e3f6;
+  --third: #fcefee;
+  --danger: #fc5c9c;
+  --black:black;
 }
 * {
   margin: 0;
@@ -58,4 +58,5 @@ nav ul li a::before {
 nav ul li a:hover::before {
   width: 100%;
 }
+
 
