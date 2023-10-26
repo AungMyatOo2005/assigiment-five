@@ -1,13 +1,60 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  background-color: var(--secondary);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --primary:#9E8FB2;
+  --secondary:#a7acd9;
+  --third:#93C6D6;
+  --fourth:#82AEB1;
+  --danger:#668586;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+nav{
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: var(--primary);
+}
+.site-name{
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+nav a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+nav ul{
+  list-style: none;
+}
+nav ul{
+  display: flex;
+  gap: 20px;
+}
+nav ul li a{
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+nav ul li a::before{
+  content: '';
+  background-color: black;
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom:13px;
+  left: 0;
+  transition: 0.4s;
+}
+nav ul li a:hover::before{
+  width: 100%;
 }
