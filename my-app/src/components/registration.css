@@ -60,12 +60,17 @@ input::-webkit-inner-spin-button {
 .form-box label {
   font-weight: bold;
 }
-.form-box span{
+.form-box .error-message-two {
   color: red;
   font-weight: bold;
   font-size: 12px;
   display: none;
 }
-.form-box input:invalid~span{
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 12px;
+}
+.form-box input:invalid ~ .error-message-two {
   display: block;
 }

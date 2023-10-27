@@ -8,6 +8,11 @@ function Registration() {
     phone: "",
     color: "#7aa7ff",
   });
+  const [error, setError] = useState({
+    phone: false,
+    email: false,
+    name: false,
+  });
 
   const formArr = [
     {
@@ -17,10 +22,11 @@ function Registration() {
       placeholder: "Enter your Name",
       label: "Name",
       errorMessage: "Name must be 3-8 characters",
+      pattern: "^[A-Za-z1-9]{3,8}$",
     },
     {
       id: 2,
-      type: "text",
+      type: "email",
       name: "email",
       placeholder: "Enter your Email",
       label: "Email",
@@ -28,7 +34,7 @@ function Registration() {
     },
     {
       id: 3,
-      type: "tel",
+      type: "number",
       name: "phone",
       placeholder: "Enter your Phone Number",
       label: "Phone Number",
@@ -38,11 +44,22 @@ function Registration() {
 
   const onChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
+    formArr.forEach((data) => {
+      setError((prevError) => ({
+        ...prevError,
+        [data.name]: value[data.name] === "" ? true : false,
+      }));
+    });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
+    formArr.forEach((data) => {
+      setError((prevError) => ({
+        ...prevError,
+        [data.name]: value[data.name] === "" ? true : false,
+      }));
+    });
   };
 
   return (
@@ -61,7 +78,10 @@ function Registration() {
                 value={value[data.name]}
                 onChange={onChange}
               />
-              <span className="error-message">{data.errorMessage}</span>
+              {error[data.name] && (
+                <span className="error-message">{data.errorMessage}</span>
+              )}
+              {error[data.name] === false && <span className="error-message-two">{data.errorMessage}</span>}
             </div>
           ))}
           <div>
@@ -74,12 +94,6 @@ function Registration() {
               <option value="#fff67a">Yellow</option>
               <option value="#ff8cfb">Pink</option>
               <option value="#fc9e51">Orange</option>
-              <option
-                value="background-color: #4158D0;
-background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 51%, #FFCC70 95%);"
-              >
-                Rainbow
-              </option>
             </select>
           </div>
         </div>
