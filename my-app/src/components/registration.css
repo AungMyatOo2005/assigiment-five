@@ -60,3 +60,12 @@ input::-webkit-inner-spin-button {
 .form-box label {
   font-weight: bold;
 }
+.form-box span{
+  color: red;
+  font-weight: bold;
+  font-size: 12px;
+  display: none;
+}
+.form-box input:invalid~span{
+  display: block;
+}
