@@ -5,22 +5,22 @@ import Navbar from './Navbar'
 import { useContext } from 'react';
 import { UserContext } from './RegistrationContext';
 function Main() {
-  const { toggleResult } = useContext(UserContext);
+  const { toggleResult,pageName } = useContext(UserContext);
     let Component;
-    switch (window.location.pathname) {
-      case "/":
-        Component = <Todo/>;
+    switch (pageName) {
+      case "":
+        Component = <Todo/>
         break;
 
-      case "/todo":
+      case "todoPage":
         Component = <Todo />;
         break;
-      case "/registration":
-        Component = <Registration/>;
+      case "registrationPage":
+        Component = <Registration />;
         break;
-      case "/temperature":
+      case "temperaturePage":
         // eslint-disable-next-line no-unused-vars
-        Component = <Temperature/>;
+        Component = <Temperature />;
       // eslint-disable-next-line no-fallthrough
       // eslint-disable-next-line no-fallthrough
       default:

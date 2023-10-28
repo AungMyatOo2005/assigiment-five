@@ -1,25 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useReducer} from "react";
+import React, { useState, useContext} from "react";
 import "./todo.css";
 import img from "../images/delete.png";
+import { UserContext } from "./RegistrationContext";
 function Todo() {
-  const todoList = (value, action) => {
-    // eslint-disable-next-line default-case
-    switch (action.type) {
-      case "ADD_TODO":
-        return [...value, { text: action.text, complete: false }];
-      case "DELETE_TODO":
-        return value.filter((_, index) => index !== action.index);
-      case "LINE_THROUGH":
-        return value.map((todo, index) => {
-          if (index === action.index) {
-            return { ...todo, complete: !todo.complete };
-          }
-          return todo;
-        });
-    }
-  };
-  const [todo, dispatch] = useReducer(todoList, []);
+  const {todo,dispatch} = useContext(UserContext)
   const [text, setText] = useState("");
   const [search,setSearch]=useState("")
   const addTodo = () => {

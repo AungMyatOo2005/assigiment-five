@@ -31,10 +31,6 @@ nav {
   font-size: 2rem;
   font-weight: bold;
 }
-nav a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-}
 nav ul {
   list-style: none;
 }
@@ -49,7 +45,7 @@ nav button{
   border: none;
   background-color: transparent;
 }
-nav ul li a {
+nav ul li {
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -57,7 +53,7 @@ nav ul li a {
   height: 100%;
   position: relative;
 }
-nav ul li a::before {
+nav ul li::before {
   content: "";
   background-color: black;
   position: absolute;
@@ -67,6 +63,6 @@ nav ul li a::before {
   left: 0;
   transition: 0.4s;
 }
-nav ul li a:hover::before {
+nav ul li:hover::before {
   width: 100%;
 }

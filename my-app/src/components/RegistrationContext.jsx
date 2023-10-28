@@ -1,8 +1,25 @@
-import React, { useState } from "react";
+import React, { useState,useReducer } from "react";
 
 export const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
+    const todoList = (value, action) => {
+      // eslint-disable-next-line default-case
+      switch (action.type) {
+        case "ADD_TODO":
+          return [...value, { text: action.text, complete: false }];
+        case "DELETE_TODO":
+          return value.filter((_, index) => index !== action.index);
+        case "LINE_THROUGH":
+          return value.map((todo, index) => {
+            if (index === action.index) {
+              return { ...todo, complete: !todo.complete };
+            }
+            return todo;
+          });
+      }
+    };
+  const [todo, dispatch] = useReducer(todoList, []);
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -14,6 +31,7 @@ const UserProvider = ({ children }) => {
     email: false,
     name: false,
   });
+  const [pageName,setPageName]=useState("")
   const toggleResult = JSON.parse(localStorage.getItem("toggle"));
   const [data, setData] = useState(false);
   const [toggle, setToggle] = useState(false);
@@ -28,7 +46,11 @@ const UserProvider = ({ children }) => {
         setData,
         toggle,
         setToggle,
-        toggleResult
+        toggleResult,
+        pageName,
+        setPageName,
+        todo,
+        dispatch
       }}
     >
       {children}

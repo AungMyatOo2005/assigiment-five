@@ -4,28 +4,29 @@ import sun from "../images/sun.png";
 import { UserContext } from "./RegistrationContext";
 
 function Navbar() {
-  const { toggle, setToggle,toggleResult } = useContext(UserContext);
+  const { toggle, setToggle, toggleResult, pageName, setPageName } =
+    useContext(UserContext);
 
   const toggleButtonClick = () => {
-    setToggle(!toggle);
-    localStorage.setItem("toggle", JSON.stringify(!toggleResult))
+    const newToggleState = !toggle;
+    setToggle(newToggleState);
+    localStorage.setItem("toggle", JSON.stringify(!toggleResult));
   };
+console.log(pageName)
+  const setPage = (newPageName) => {
+    setPageName(
+      newPageName
+    );
+  };
+
   return (
     <div>
       <nav>
-        <a href="/" className="site-name">
-          Assigiment
-        </a>
+        <p className="site-name">Assignment</p>
         <ul>
-          <li>
-            <a href="/todo">Todo</a>
-          </li>
-          <li>
-            <a href="/registration">Registration</a>
-          </li>
-          <li>
-            <a href="/temperature">Temperature</a>
-          </li>
+          <li onClick={() => setPage("todoPage")}>Todo</li>
+          <li onClick={() => setPage("registrationPage")}>Registration</li>
+          <li onClick={() => setPage("temperaturePage")}>Temperature</li>
         </ul>
         <button onClick={toggleButtonClick}>
           <img src={toggleResult ? sun : moon} alt="Toggle" />
