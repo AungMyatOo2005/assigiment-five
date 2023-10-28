@@ -3,11 +3,12 @@ import React, { useContext } from "react";
 import "./usercard.css";
 import img from "../images/people.jpg";
 import { UserContext } from "./RegistrationContext";
-function UserCard(props) {
-  const {setData } = useContext(UserContext);
-  const { name, email, phone, color } = props.value;
+function UserCard() {
+  const {setData,value,setValue } = useContext(UserContext);
+  const { name, email, phone, color } = value;
   const handleClick=()=>{
     setData(false)
+    setValue({name:"",email:"",phone:""})
   }
   return (
     <div className="card-container">

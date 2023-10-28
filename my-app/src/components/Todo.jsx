@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer} from "react";
 import "./todo.css";
 import img from "../images/delete.png";
 function Todo() {

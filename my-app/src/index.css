@@ -2,6 +2,7 @@ body {
   background-color: var(--third);
 }
 :root {
+  --nav:#c3f7d3;
   --primary: #fccde2;
   --secondary: #c5e3f6;
   --third: #fcefee;
@@ -20,7 +21,7 @@ nav {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  background-color: var(--primary);
+  background-color: var(--nav);
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -40,6 +41,13 @@ nav ul {
 nav ul {
   display: flex;
   gap: 20px;
+}
+nav img{
+  width: 26px;
+}
+nav button{
+  border: none;
+  background-color: transparent;
 }
 nav ul li a {
   font-weight: bold;

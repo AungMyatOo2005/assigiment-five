@@ -1,9 +1,11 @@
-import React from 'react'
 import Todo from './Todo'
 import Registration from './Registration';
 import Temperature from './Temperature';
 import Navbar from './Navbar'
+import { useContext } from 'react';
+import { UserContext } from './RegistrationContext';
 function Main() {
+  const { toggleResult } = useContext(UserContext);
     let Component;
     switch (window.location.pathname) {
       case "/":
@@ -25,11 +27,11 @@ function Main() {
         break;
     }
   return (
-    <div>
-        <Navbar></Navbar>
-        {Component}
+    <div style={{ backgroundColor: toggleResult ? "#fcefee" : "rgb(43, 42, 42)" }}>
+      <Navbar></Navbar>
+      {Component}
     </div>
-  )
+  );
 }
 
 export default Main

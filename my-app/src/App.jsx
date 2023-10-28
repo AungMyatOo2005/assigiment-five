@@ -4,7 +4,7 @@ import UserProvider from "./components/RegistrationContext";
 
 function App() {
   return (
-    <div className="App" style={{backgroundColor:"#fcefee"}}>
+    <div className="App">
       <UserProvider>
         <Main />
       </UserProvider>
