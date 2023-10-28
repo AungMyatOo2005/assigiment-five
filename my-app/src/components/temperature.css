@@ -1,0 +1,41 @@
+.temperature-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.temperature-box {
+  background-color: var(--danger);
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.input-box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.input-inside{
+    display: flex;
+    align-items: center;
+}
+.input-inside input {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px 20px;
+  outline: none;
+  border-radius: 5px;
+}
+.input-inside label {
+  margin-left: 20px;
+  text-align: center;
+  width: 160px;
+  padding: 9px 20px;
+  display: inline-block;
+  background-color: var(--black);
+  color: var(--third);
+}

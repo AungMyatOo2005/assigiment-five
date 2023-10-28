@@ -1,12 +1,12 @@
 body {
-  background:linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200));
+  background: linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200));
 }
 :root {
   --primary: #fccde2;
   --secondary: #c5e3f6;
   --third: #fcefee;
-  --danger: #fc5c9c;
-  --black:black;
+  --danger: #574b90;
+  --black: rgb(43, 42, 42);
 }
 * {
   margin: 0;
@@ -20,6 +20,9 @@ nav {
   align-items: stretch;
   justify-content: space-between;
   background-color: var(--primary);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 .site-name {
   padding: 0.5rem 0;
@@ -58,5 +61,3 @@ nav ul li a::before {
 nav ul li a:hover::before {
   width: 100%;
 }
-
-

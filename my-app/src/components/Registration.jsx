@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import "./registration.css";
 import UserCard from "./UserCard";
 import { UserContext } from "./RegistrationContext";
 import Form from "./Form";
 
 function Registration() {
-  const { value ,data  } = useContext(UserContext)
-
+  const { value, data } = useContext(UserContext);
+  const isTrue = useMemo(() => data, [data]);
   return (
     <div className="register-container">
-      {!data && <Form></Form>}
-      {data && <UserCard value={value}/>}
+      {!isTrue && <Form></Form>}
+      {isTrue && <UserCard value={value} />}
     </div>
   );
 }
