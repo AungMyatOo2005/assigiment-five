@@ -1,7 +1,6 @@
 import React from "react";
 
 function Navbar() {
-  console.log(window.location);
   return (
     <div>
       <nav>

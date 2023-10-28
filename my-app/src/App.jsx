@@ -1,10 +1,13 @@
 import "./App.css";
 import Main from "./components/Main";
+import UserProvider from "./components/RegistrationContext";
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <UserProvider>
+        <Main />
+      </UserProvider>
     </div>
   );
 }
