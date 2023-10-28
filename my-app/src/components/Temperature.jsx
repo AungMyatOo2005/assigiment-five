@@ -2,65 +2,70 @@ import React, { useState } from "react";
 import "./temperature.css";
 
 function Temperature() {
-  const [inputTemperature, setInputTemperature] = useState("");
-  const [outputTemperature, setOutputTemperature] = useState("");
-  const [inputUnit, setInputUnit] = useState("fahrenheit");
-  const [outputUnit, setOutputUnit] = useState("celsius");
+  const [fahrenheit, setFahrenheit] = useState("");
+  const [celsius, setCelsius] = useState("");
+  const [read, setRead] = useState({
+    completeOne: false,
+    completeTwo: false,
+  });
 
-  const handleChange = (e) => {
-    setInputTemperature(e.target.value);
-    convertTemperature(e.target.value);
-  };
-
-  const convertTemperature = (value) => {
-    if (inputUnit === "fahrenheit" && outputUnit === "celsius") {
-      const fahrenheit = parseFloat(value);
-      const celsius = ((fahrenheit - 32) * 5) / 9;
-      setOutputTemperature(celsius.toFixed(2));
-    } else if (inputUnit === "celsius" && outputUnit === "fahrenheit") {
-      const celsius = parseFloat(value);
-      const fahrenheit = (celsius * 9) / 5 + 32;
-      setOutputTemperature(fahrenheit.toFixed(2));
+  const toFahrenheit = (e) => {
+    const fahrenheit = e.target.value;
+    setFahrenheit(fahrenheit);
+    const result = parseFloat(fahrenheit);
+    const toCelsius = ((result - 32) * 5) / 9;
+    setCelsius(toCelsius.toFixed(3));
+    if (fahrenheit !== "") {
+      setRead({ ...read, completeOne: true, completeTwo: false });
+    } else {
+      setRead({ ...read, completeOne: false, completeTwo: false });
+      setCelsius("");
     }
   };
 
-  const switchUnits = () => {
-    setInputUnit(outputUnit);
-    setOutputUnit(inputUnit);
-    convertTemperature(inputTemperature);
+  const toCelsius = (e) => {
+    const celsius = e.target.value;
+    setCelsius(celsius);
+    const result = parseFloat(celsius);
+    const toFahrenheit = (result * 9) / 5 + 32;
+    setFahrenheit(toFahrenheit.toFixed(3));
+    if (celsius !== "") {
+      setRead({ ...read, completeOne: false, completeTwo: true });
+    } else {
+      setRead({ ...read, completeOne: false, completeTwo: false });
+      setFahrenheit("");
+    }
+  };
+
+  const nothing = (e) => {
+    return;
   };
 
   return (
     <div className="temperature-container">
       <div className="temperature-box">
-        <h3>Temperature Converter</h3>
+        <h3>Temperature Convert</h3>
         <div className="input-box">
           <div className="input-inside">
             <input
-              placeholder={
-                inputUnit === "fahrenheit" ? "Fahrenheit" : "Degree Celsius"
-              }
-              onChange={handleChange}
-              value={inputTemperature}
+              placeholder="Fahrenheit"
+              onChange={read.completeTwo ? nothing : toFahrenheit}
+              value={fahrenheit}
+              readOnly={read.completeTwo}
             />
-            <label>
-              {inputUnit === "fahrenheit" ? "Fahrenheit" : "Degree Celsius"}
-            </label>
+            <label>Fahrenheit</label>
           </div>
           <div className="input-inside">
             <input
-              placeholder={
-                outputUnit === "fahrenheit" ? "Fahrenheit" : "Degree Celsius"
-              }
-              value={outputTemperature}
-              readOnly
+              placeholder="Degree Celsius"
+              value={celsius}
+              onChange={read.completeOne ? nothing : toCelsius}
             />
-            <label>
-              {outputUnit === "fahrenheit" ? "Fahrenheit" : "Degree Celsius"}
-            </label>
+            <label>Degree Celsius</label>
           </div>
+          <h4>{read.completeOne && ` ${celsius} °C`}</h4>
+          <h4>{read.completeTwo && ` ${fahrenheit} °F`}</h4>
         </div>
-        <button onClick={switchUnits}>Switch Units</button>
       </div>
     </div>
   );

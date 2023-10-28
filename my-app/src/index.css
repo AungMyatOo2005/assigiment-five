@@ -9,6 +9,7 @@ body {
   --black: rgb(43, 42, 42);
 }
 * {
+  user-select: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
