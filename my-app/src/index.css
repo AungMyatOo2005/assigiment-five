@@ -1,11 +1,11 @@
 body {
-  background: linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200));
+  background-color: var(--third);
 }
 :root {
   --primary: #fccde2;
   --secondary: #c5e3f6;
   --third: #fcefee;
-  --danger: #574b90;
+  --danger: #acaeff;
   --black: rgb(43, 42, 42);
 }
 * {

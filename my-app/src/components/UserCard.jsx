@@ -13,7 +13,7 @@ function UserCard(props) {
     <div className="card-container">
       <div className="color-box" style={{ background: `${color}` }}></div>
       <div className="img-box">
-        <img src={img} style={{ border: `3px solid ${color}` }}></img>
+        <img src={img} style={{ border: `3px solid ${color}`}}></img>
       </div>
       <div className="info-box">
         <h3 className="name">{name}</h3>
@@ -28,7 +28,7 @@ function UserCard(props) {
           </p>
         </div>
       </div>
-      <button className="card-button" style={{ backgroundColor: `${color}` }} onClick={handleClick}>
+      <button className="card-button" style={{ background: `${color}` }} onClick={handleClick}>
         Back Registration
       </button>
     </div>

@@ -94,6 +94,9 @@ function Form() {
               <option value="#fff67a">Yellow</option>
               <option value="#ff8cfb">Pink</option>
               <option value="#fc9e51">Orange</option>
+              <option value="linear-gradient(90deg, rgba(193,219,213,1) 0%, rgba(218,78,219,1) 23%, rgba(150,232,233,1) 60%, rgba(163,133,214,1) 89%),rgb(193,219,213)">
+                Rainbow
+              </option>
             </select>
           </div>
         </div>
