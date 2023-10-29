@@ -2,7 +2,7 @@ body {
   background-color: var(--third);
 }
 :root {
-  --nav:#c3f7d3;
+  --nav: #c3f7d3;
   --primary: #fccde2;
   --secondary: #c5e3f6;
   --third: #fcefee;
@@ -19,7 +19,7 @@ body {
 nav {
   padding: 0 1.5rem;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
   background-color: var(--nav);
   position: fixed;
@@ -38,14 +38,14 @@ nav ul {
   display: flex;
   gap: 20px;
 }
-nav img{
+nav img {
   width: 26px;
 }
-nav button{
+nav button {
   border: none;
   background-color: transparent;
 }
-nav .first-ul li {
+nav ul li {
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -53,28 +53,28 @@ nav .first-ul li {
   height: 100%;
   position: relative;
 }
-nav .first-ul li::before {
+nav ul li::before {
   content: "";
   background-color: black;
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: 13px;
+  top: 1.3rem;
   left: 0;
   transition: 0.4s;
 }
 nav ul li:hover::before {
   width: 100%;
 }
-.nav-btns{
+.nav-btns {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.menu{
+.menu {
   display: none;
 }
-.toggle-menu{
+.toggle-menu {
   position: absolute;
   border-radius: 10px;
   right: 1rem;
@@ -83,43 +83,44 @@ nav ul li:hover::before {
   overflow: hidden;
   transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.open{
-  height:160px;
-}
-.second-ul{
+.second-ul {
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: bold;
 }
-@media (max-width:700px) {
-  .site-name{
+@media (max-width: 700px) {
+  .site-name {
     font-size: 1.5rem;
   }
-  nav button img{
+  nav button img {
     width: 20px;
   }
 }
-@media (max-width:600px) {
-  .first-ul  {
+@media (max-width: 600px) {
+  .first-ul {
     display: none;
   }
-  .menu{
+  .menu {
     display: block;
   }
+
+  .open {
+    height: 160px;
+  }
 }
-@media (max-width:440px) {
-  .site-name{
+@media (max-width: 440px) {
+  .site-name {
     font-size: 1.3rem;
   }
-  nav{
+  nav {
     padding: 0px 10px;
   }
-  nav .first-ul li{
+  nav .first-ul li {
     font-size: 12px;
   }
-  nav button img{
+  nav button img {
     width: 18px;
   }
 }
