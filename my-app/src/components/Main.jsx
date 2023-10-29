@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 import { useContext } from 'react';
 import { UserContext } from './RegistrationContext';
 function Main() {
-  const { toggleResult,pageName } = useContext(UserContext);
+  const { toggle,pageName } = useContext(UserContext);
     let Component;
     switch (pageName) {
       case "":
@@ -27,7 +27,7 @@ function Main() {
         break;
     }
   return (
-    <div style={{ backgroundColor: toggleResult ? "#fcefee" : "rgb(43, 42, 42)" }}>
+    <div style={{ backgroundColor: toggle ? "#fcefee" : "rgb(43, 42, 42)" }}>
       <Navbar></Navbar>
       {Component}
     </div>

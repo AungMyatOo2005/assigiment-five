@@ -37,4 +37,18 @@
   display: inline-block;
   background-color: var(--black);
   color: var(--third);
+  border-radius: 3px;
+}
+@media (max-width:550px) {
+  .input-inside{
+    flex-direction: column-reverse;
+    align-items: start;
+    gap: 5px;
+  }
+  .input-inside label{
+    margin-left: 0;
+    width: 140px;
+    padding: 10px 10px;
+    font-size: 14px;
+  }
 }

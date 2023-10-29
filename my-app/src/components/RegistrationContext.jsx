@@ -32,9 +32,9 @@ const UserProvider = ({ children }) => {
     name: false,
   });
   const [pageName,setPageName]=useState("")
-  const toggleResult = JSON.parse(localStorage.getItem("toggle"));
   const [data, setData] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const [isMenu,setIsMenu]=useState(false)
   return (
     <UserContext.Provider
       value={{
@@ -46,11 +46,12 @@ const UserProvider = ({ children }) => {
         setData,
         toggle,
         setToggle,
-        toggleResult,
         pageName,
         setPageName,
         todo,
-        dispatch
+        dispatch,
+        isMenu,
+        setIsMenu
       }}
     >
       {children}

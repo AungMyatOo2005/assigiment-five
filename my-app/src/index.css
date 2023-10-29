@@ -45,7 +45,7 @@ nav button{
   border: none;
   background-color: transparent;
 }
-nav ul li {
+nav .first-ul li {
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@ nav ul li {
   height: 100%;
   position: relative;
 }
-nav ul li::before {
+nav .first-ul li::before {
   content: "";
   background-color: black;
   position: absolute;
@@ -65,4 +65,61 @@ nav ul li::before {
 }
 nav ul li:hover::before {
   width: 100%;
+}
+.nav-btns{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.menu{
+  display: none;
+}
+.toggle-menu{
+  position: absolute;
+  border-radius: 10px;
+  right: 1rem;
+  top: 3rem;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.open{
+  height:160px;
+}
+.second-ul{
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+@media (max-width:700px) {
+  .site-name{
+    font-size: 1.5rem;
+  }
+  nav button img{
+    width: 20px;
+  }
+}
+@media (max-width:600px) {
+  .first-ul  {
+    display: none;
+  }
+  .menu{
+    display: block;
+  }
+}
+@media (max-width:440px) {
+  .site-name{
+    font-size: 1.3rem;
+  }
+  nav{
+    padding: 0px 10px;
+  }
+  nav .first-ul li{
+    font-size: 12px;
+  }
+  nav button img{
+    width: 18px;
+  }
 }
